@@ -22,7 +22,7 @@ O **Sistema de Biblioteca** é uma aplicação criada para gerenciar um acervo d
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/SeuUsuario/SeuRepositorio.git
+   git clone https://github.com/DanieleAnjos/crud_teste-main.git
 
 2. Instale as dependências:
    ```bash
