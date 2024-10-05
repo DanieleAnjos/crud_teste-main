@@ -1,0 +1,33 @@
+
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Criar Novo Livro</h2>
+
+    <form action="/books" method="POST" class="p-4" style="background-color: #ffffff; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+        <div class="mb-3">
+            <label for="titulo" class="form-label">Título:</label>
+            <input type="text" name="titulo" class="form-control" style="border-radius: 8px;" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="autor" class="form-label">Autor:</label>
+            <input type="text" name="autor" class="form-control" style="border-radius: 8px;" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="ano" class="form-label">Ano:</label>
+            <input type="number" name="ano" class="form-control" style="border-radius: 8px;" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="categoria" class="form-label">Categoria:</label>
+            <input type="text" name="categoria" class="form-control" style="border-radius: 8px;" required>
+        </div>
+
+        <button type="submit" class="btn btn-custom btn-block" style="border-radius: 30px; padding: 10px 0;">Criar Livro</button>
+    </form>
+
+    <div class="text-center mt-3">
+        <a href="/books" class="btn btn-link" style="color: #6c63ff;">Voltar à Lista de Livros</a>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+
+<main class="container mt-5">
+    <h2>Lista de Livros</h2>
+
+    {{#if message}}
+    <div class="alert alert-success" role="alert">
+        {{message}}
+    </div>
+    {{/if}}
+
+    <table class="table table-striped">
+        <thead style="background-color: hsl(210, 73%, 61%); color: #fff;"> <!-- Cabeçalho com cor de fundo e texto branco -->
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Ano</th>
+                <th>Categoria</th>
+                <th>Disponibilidade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each livros}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.titulo}}</td>
+                <td>{{this.autor}}</td>
+                <td>{{this.ano}}</td>
+                <td>{{this.categoria}}</td>
+                <td>
+                    {{#if this.disponibilidade}}
+                    <span class="badge badge-success">Disponível</span>
+                    {{else}}
+                    <span class="badge badge-danger">Emprestado</span>
+                    {{/if}}
+                </td>
+                <td>
+                    <a href="/books/{{this.id}}/edit" class="btn btn-info btn-sm">Editar</a> <!-- Azul claro -->
+                    <form action="/books/{{this.id}}/delete" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Deletar</button> <!-- Vermelho -->
+                    </form>
+                    {{#if this.disponibilidade}}
+                    <form action="/books/{{this.id}}/borrow" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-success btn-sm">Emprestar</button> <!-- Verde -->
+                    </form>
+                    {{else}}
+                    <form action="/books/{{this.id}}/return" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-primary btn-sm">Devolver</button> <!-- Azul escuro -->
+                    </form>
+                    {{/if}}
+                </td>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="7">Nenhum livro encontrado.</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <a href="/books/create" class="btn btn-custom">Adicionar Novo Livro</a>
+</main>
